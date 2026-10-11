@@ -1,0 +1,6 @@
+{
+  "name": "dependency_guard",
+  "version": "1.0.0",
+  "description": "Scans requirements.txt to flag unpinned dependencies.",
+  "entrypoint": "main.py"
+}

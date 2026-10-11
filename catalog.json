@@ -7,8 +7,8 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["json", "formatting", "parser", "utility"],
+    "file_path": "tools/json_inspector.py",
     "payload": {
-      "code": "def json_inspector(text: str, indent: int = 2) -> dict:\n    \"\"\"Format, validate and inspect JSON text.\"\"\"\n    import json\n    try:\n        data = json.loads(text)\n        return {\n            'success': True,\n            'valid': True,\n            'formatted': json.dumps(data, indent=indent),\n            'type': type(data).__name__,\n            'keys': list(data.keys()) if isinstance(data, dict) else len(data),\n        }\n    except Exception as e:\n        return {'success': False, 'valid': False, 'error': str(e)}\n",
       "entrypoint": "json_inspector"
     }
   },
@@ -20,8 +20,8 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["crypto", "hash", "sha256", "security"],
+    "file_path": "tools/hash_calculator.py",
     "payload": {
-      "code": "def hash_calculator(text: str = '', algorithm: str = 'sha256') -> dict:\n    \"\"\"Compute cryptographic hash of a given string.\"\"\"\n    import hashlib\n    algo = algorithm.lower().strip()\n    if algo not in hashlib.algorithms_available:\n        return {'success': False, 'error': f'Unsupported algorithm: {algo}'}\n    h = hashlib.new(algo)\n    h.update(text.encode('utf-8'))\n    return {'success': True, 'algorithm': algo, 'digest': h.hexdigest(), 'length': len(text)}\n",
       "entrypoint": "hash_calculator"
     }
   },
@@ -33,8 +33,8 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["regex", "testing", "string", "pattern"],
+    "file_path": "tools/regex_tester.py",
     "payload": {
-      "code": "def regex_tester(pattern: str, text: str) -> dict:\n    \"\"\"Test regex pattern and return matches.\"\"\"\n    import re\n    try:\n        compiled = re.compile(pattern)\n        matches = [m.group(0) for m in compiled.finditer(text)]\n        return {'success': True, 'pattern': pattern, 'match_count': len(matches), 'matches': matches[:50]}\n    except Exception as e:\n        return {'success': False, 'error': str(e)}\n",
       "entrypoint": "regex_tester"
     }
   },
@@ -46,8 +46,8 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["finance", "currency", "converter"],
+    "file_path": "tools/currency_converter.py",
     "payload": {
-      "code": "def currency_converter(amount: float, from_curr: str = 'USD', to_curr: str = 'EUR') -> dict:\n    \"\"\"Convert currency using standard baseline rates.\"\"\"\n    rates_to_usd = {'USD': 1.0, 'EUR': 0.92, 'GBP': 0.79, 'JPY': 154.5, 'EGP': 49.2, 'CAD': 1.38}\n    f = from_curr.upper()\n    t = to_curr.upper()\n    if f not in rates_to_usd or t not in rates_to_usd:\n        return {'success': False, 'error': f'Unsupported currency pair {f}->{t}'}\n    usd_val = amount / rates_to_usd[f]\n    res = round(usd_val * rates_to_usd[t], 4)\n    return {'success': True, 'amount': amount, 'from': f, 'to': t, 'result': res}\n",
       "entrypoint": "currency_converter"
     }
   },
@@ -59,32 +59,22 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["metrics", "analysis", "code-quality"],
+    "file_path": "plugins/code_metrics/main.py",
     "payload": {
-      "manifest": {
-        "name": "code_metrics",
-        "version": "1.0.0",
-        "description": "Codebase metrics analyzer plugin",
-        "entrypoint": "main.py"
-      },
-      "code": "\"\"\"code_metrics plugin main.py\"\"\"\ndef analyze_metrics(path: str = '.') -> dict:\n    import os\n    total_lines = 0\n    files = 0\n    for root, _, fnames in os.walk(path):\n        for f in fnames:\n            if f.endswith('.py'):\n                files += 1\n                try:\n                    with open(os.path.join(root, f), 'r', encoding='utf-8', errors='ignore') as fp:\n                        total_lines += sum(1 for _ in fp)\n                except Exception:\n                    pass\n    return {'success': True, 'python_files': files, 'total_lines': total_lines}\n"
+      "manifest_path": "plugins/code_metrics/plugin.json"
     }
   },
   {
     "id": "plugin_dependency_guard",
     "name": "dependency_guard",
     "item_type": "plugin",
-    "description": "Scans requirements.txt and pyproject.toml to flag unpinned or legacy dependencies.",
+    "description": "Scans requirements.txt to flag unpinned dependencies.",
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["dependencies", "security", "pip"],
+    "file_path": "plugins/dependency_guard/main.py",
     "payload": {
-      "manifest": {
-        "name": "dependency_guard",
-        "version": "1.0.0",
-        "description": "Scans project dependencies for best practices",
-        "entrypoint": "main.py"
-      },
-      "code": "\"\"\"dependency_guard plugin main.py\"\"\"\ndef check_deps(path: str = 'requirements.txt') -> dict:\n    import os\n    if not os.path.exists(path):\n        return {'success': True, 'message': 'No requirements.txt found', 'unpinned': []}\n    unpinned = []\n    with open(path, 'r', encoding='utf-8') as f:\n        for line in f:\n            line = line.strip()\n            if line and not line.startswith('#') and '==' not in line and '>=' not in line:\n                unpinned.append(line)\n    return {'success': True, 'unpinned_count': len(unpinned), 'unpinned': unpinned}\n"
+      "manifest_path": "plugins/dependency_guard/plugin.json"
     }
   },
   {
@@ -95,14 +85,14 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["tdd", "testing", "refactor", "workflow"],
+    "file_path": "skills/tdd_refactoring/SKILL.md",
     "payload": {
       "steps": [
-        "Inspect existing test coverage and reproduce target behavior with a failing unit test.",
-        "Implement minimal code changes required to turn the failing test green.",
-        "Refactor implementation for clean architecture, typing, and docstrings without breaking tests.",
-        "Run complete test suite and create git checkpoint before completing."
-      ],
-      "markdown": "# TDD Refactoring Skill\n\n1. Write failing test.\n2. Pass test minimally.\n3. Refactor cleanly.\n4. Verify 100% test pass.\n"
+        "Write failing unit test.",
+        "Make minimal change to pass.",
+        "Refactor cleanly.",
+        "Verify with full test suite."
+      ]
     }
   },
   {
@@ -113,14 +103,14 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["security", "audit", "ast", "compliance"],
+    "file_path": "skills/security_audit/SKILL.md",
     "payload": {
       "steps": [
-        "Scan source tree for hardcoded API keys, tokens, and credentials.",
-        "Inspect Python AST for un-sanitized os.system, subprocess, or eval calls.",
-        "Verify permission gates on external network and destructive file modifications.",
-        "Output structured security audit summary report."
-      ],
-      "markdown": "# Security Audit Routine\n\nSystematic procedure to audit AST and secrets.\n"
+        "Scan source tree for hardcoded secrets.",
+        "Inspect Python AST for risky calls.",
+        "Check permission gates.",
+        "Generate audit report."
+      ]
     }
   },
   {

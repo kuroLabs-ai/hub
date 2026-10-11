@@ -1,0 +1,6 @@
+{
+  "name": "code_metrics",
+  "version": "1.0.0",
+  "description": "Analyzes Python source files to calculate lines of code and function count.",
+  "entrypoint": "main.py"
+}

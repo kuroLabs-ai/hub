@@ -226,5 +226,18 @@
         "Identify breaking changes and document necessary footers."
       ]
     }
+  },
+  {
+    "id": "plugin_local_knowledge_base",
+    "name": "local_knowledge_base",
+    "item_type": "plugin",
+    "description": "Index selected folders, Markdown files, documentation, and notes so KuroCode can search personal or project knowledge and retrieve relevant passages when answering questions.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["knowledge-base", "search", "markdown", "notes", "rag", "retrieval", "docs"],
+    "file_path": "plugins/local_knowledge_base/main.py",
+    "payload": {
+      "manifest_path": "plugins/local_knowledge_base/plugin.json"
+    }
   }
 ]

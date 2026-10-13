@@ -1,0 +1,7 @@
+{
+  "name": "local_knowledge_base",
+  "version": "1.0.0",
+  "description": "Index selected folders, Markdown files, documentation, and notes so KuroCode can search personal or project knowledge and retrieve relevant passages when answering questions.",
+  "entrypoint": "main.py",
+  "dependencies": []
+}

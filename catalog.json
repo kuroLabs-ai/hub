@@ -169,5 +169,18 @@
     "payload": {
       "entrypoint": "web_scraper"
     }
+  },
+  {
+    "id": "plugin_pdf_toolkit",
+    "name": "pdf_toolkit",
+    "item_type": "plugin",
+    "description": "Read, merge, split, extract text/metadata, and generate PDF documents.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["pdf", "documents", "extractor", "generator", "converter"],
+    "file_path": "plugins/pdf_toolkit/main.py",
+    "payload": {
+      "manifest_path": "plugins/pdf_toolkit/plugin.json"
+    }
   }
 ]

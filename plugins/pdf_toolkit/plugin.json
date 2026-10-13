@@ -1,0 +1,7 @@
+{
+  "name": "pdf_toolkit",
+  "version": "1.0.0",
+  "description": "Read, merge, split, extract text/metadata, and generate PDF documents.",
+  "entrypoint": "main.py",
+  "dependencies": []
+}

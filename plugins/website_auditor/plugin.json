@@ -1,0 +1,7 @@
+{
+  "name": "website_auditor",
+  "version": "1.0.0",
+  "description": "Audit websites for SEO, accessibility, performance, and best practices.",
+  "entrypoint": "main.py",
+  "dependencies": []
+}

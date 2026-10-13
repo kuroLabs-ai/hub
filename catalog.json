@@ -195,5 +195,18 @@
     "payload": {
       "manifest_path": "plugins/image_processor/plugin.json"
     }
+  },
+  {
+    "id": "plugin_website_auditor",
+    "name": "website_auditor",
+    "item_type": "plugin",
+    "description": "Audit websites for SEO, accessibility, performance, and best practices.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["seo", "audit", "accessibility", "web", "performance", "security"],
+    "file_path": "plugins/website_auditor/main.py",
+    "payload": {
+      "manifest_path": "plugins/website_auditor/plugin.json"
+    }
   }
 ]

@@ -138,5 +138,23 @@
       "connector_module": "kurocode.integrations.slack",
       "required_env": ["SLACK_WEBHOOK_URL"]
     }
+  },
+  {
+    "id": "skill_docs_generator",
+    "name": "docs_generator",
+    "item_type": "skill",
+    "description": "Generate structured technical documentation from source code across multiple languages.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["documentation", "docs", "markdown", "docstrings", "api-reference"],
+    "file_path": "skills/docs_generator/SKILL.md",
+    "payload": {
+      "steps": [
+        "Discover modules, packages, and architecture targets.",
+        "Extract public interfaces, signatures, and configuration models.",
+        "Synthesize Markdown documentation with examples and diagrams.",
+        "Validate links, signatures, and output paths."
+      ]
+    }
   }
 ]

@@ -239,5 +239,18 @@
     "payload": {
       "manifest_path": "plugins/local_knowledge_base/plugin.json"
     }
+  },
+  {
+    "id": "plugin_speech_transcriber",
+    "name": "speech_transcriber",
+    "item_type": "plugin",
+    "description": "Convert audio recordings into text using configurable speech-recognition APIs, with timestamps when supported.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["audio", "speech", "transcription", "whisper", "voice", "stt"],
+    "file_path": "plugins/speech_transcriber/main.py",
+    "payload": {
+      "manifest_path": "plugins/speech_transcriber/plugin.json"
+    }
   }
 ]

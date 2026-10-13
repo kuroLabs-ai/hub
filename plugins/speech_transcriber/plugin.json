@@ -1,0 +1,7 @@
+{
+  "name": "speech_transcriber",
+  "version": "1.0.0",
+  "description": "Convert audio recordings into text using configurable speech-recognition APIs, with timestamps when supported.",
+  "entrypoint": "main.py",
+  "dependencies": []
+}

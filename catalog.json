@@ -208,5 +208,23 @@
     "payload": {
       "manifest_path": "plugins/website_auditor/plugin.json"
     }
+  },
+  {
+    "id": "skill_commit_generator",
+    "name": "commit_generator",
+    "item_type": "skill",
+    "description": "Generate Conventional Commit messages from Git diffs, staged changes, and issue references.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["git", "commits", "conventional-commits", "vcs", "workflow"],
+    "file_path": "skills/commit_generator/SKILL.md",
+    "payload": {
+      "steps": [
+        "Inspect git status and staged or unstaged diffs.",
+        "Categorize change type (feat, fix, docs, refactor, perf, test, chore).",
+        "Compose succinct imperative commit message following Conventional Commits 1.0.0.",
+        "Identify breaking changes and document necessary footers."
+      ]
+    }
   }
 ]

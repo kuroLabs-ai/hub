@@ -1,0 +1,7 @@
+{
+  "name": "image_processor",
+  "version": "1.0.0",
+  "description": "Resize, compress, convert, crop, and optimize images.",
+  "entrypoint": "main.py",
+  "dependencies": []
+}

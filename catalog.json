@@ -182,5 +182,18 @@
     "payload": {
       "manifest_path": "plugins/pdf_toolkit/plugin.json"
     }
+  },
+  {
+    "id": "plugin_image_processor",
+    "name": "image_processor",
+    "item_type": "plugin",
+    "description": "Resize, compress, convert, crop, and optimize images across major formats.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["image", "resize", "compress", "converter", "pillow", "optimization"],
+    "file_path": "plugins/image_processor/main.py",
+    "payload": {
+      "manifest_path": "plugins/image_processor/plugin.json"
+    }
   }
 ]

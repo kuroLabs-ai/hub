@@ -1,0 +1,8 @@
+{
+  "name": "gitlab",
+  "version": "1.0.0",
+  "description": "GitLab REST API connector for repository inspection, issue tracking, and CI/CD pipelines.",
+  "entrypoint": "main.py",
+  "auth_type": "access_token",
+  "env_var": "GITLAB_TOKEN"
+}

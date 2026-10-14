@@ -1,0 +1,8 @@
+{
+  "name": "github",
+  "version": "1.0.0",
+  "description": "GitHub REST API connector for repository inspection, issue/PR management, and workflow dispatching.",
+  "entrypoint": "main.py",
+  "auth_type": "bearer_token",
+  "env_var": "GITHUB_TOKEN"
+}

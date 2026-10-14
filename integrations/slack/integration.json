@@ -1,0 +1,8 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "description": "Slack workspace bot and webhook connector for task alerts and notifications.",
+  "entrypoint": "main.py",
+  "auth_type": "bot_token",
+  "env_var": "SLACK_BOT_TOKEN"
+}

@@ -78,6 +78,32 @@
     }
   },
   {
+    "id": "tool_secret_scanner",
+    "name": "secret_scanner",
+    "item_type": "tool",
+    "description": "Scan text, files, and directories for exposed secrets, API keys, private tokens, and high-entropy credentials.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["security", "secrets", "scanner", "credentials", "entropy", "tokens"],
+    "file_path": "tools/secret_scanner.py",
+    "payload": {
+      "entrypoint": "secret_scanner"
+    }
+  },
+  {
+    "id": "tool_csv_json_converter",
+    "name": "csv_json_converter",
+    "item_type": "tool",
+    "description": "Bidirectional streaming converter between CSV/TSV data and structured JSON/JSONL formats.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["csv", "json", "converter", "jsonl", "data", "parser"],
+    "file_path": "tools/csv_json_converter.py",
+    "payload": {
+      "entrypoint": "csv_json_converter"
+    }
+  },
+  {
     "id": "plugin_code_metrics",
     "name": "code_metrics",
     "item_type": "plugin",
@@ -266,6 +292,34 @@
     "payload": {
       "auth_type": "bot_token",
       "env_var": "SLACK_BOT_TOKEN"
+    }
+  },
+  {
+    "id": "integration_github",
+    "name": "github",
+    "item_type": "integration",
+    "description": "GitHub REST API connector for repository inspection, issue/PR management, and workflow dispatching.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["github", "vcs", "git", "ci-cd", "issues", "pr"],
+    "dir_path": "integrations/github",
+    "payload": {
+      "auth_type": "bearer_token",
+      "env_var": "GITHUB_TOKEN"
+    }
+  },
+  {
+    "id": "integration_discord",
+    "name": "discord",
+    "item_type": "integration",
+    "description": "Discord Webhook connector for dispatching operational alerts, logs, and build notifications.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["discord", "notifications", "alerts", "webhook", "chatops"],
+    "dir_path": "integrations/discord",
+    "payload": {
+      "auth_type": "webhook_url",
+      "env_var": "DISCORD_WEBHOOK_URL"
     }
   }
 ]

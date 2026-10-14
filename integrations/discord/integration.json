@@ -1,0 +1,8 @@
+{
+  "name": "discord",
+  "version": "1.0.0",
+  "description": "Discord Webhook connector for dispatching operational alerts, logs, and build notifications.",
+  "entrypoint": "main.py",
+  "auth_type": "webhook_url",
+  "env_var": "DISCORD_WEBHOOK_URL"
+}

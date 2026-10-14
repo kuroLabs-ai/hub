@@ -52,6 +52,19 @@
     }
   },
   {
+    "id": "tool_web_scraper",
+    "name": "web_scraper",
+    "item_type": "tool",
+    "description": "Extract structured information including title, metadata, headings, text summary, and links from permitted webpages.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["web", "scraper", "crawler", "http", "html", "parsing"],
+    "file_path": "tools/web_scraper.py",
+    "payload": {
+      "entrypoint": "web_scraper"
+    }
+  },
+  {
     "id": "plugin_code_metrics",
     "name": "code_metrics",
     "item_type": "plugin",
@@ -59,9 +72,9 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["metrics", "analysis", "code-quality"],
-    "file_path": "plugins/code_metrics/main.py",
+    "dir_path": "plugins/code_metrics",
     "payload": {
-      "manifest_path": "plugins/code_metrics/plugin.json"
+      "entrypoint": "main.py"
     }
   },
   {
@@ -72,9 +85,74 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["dependencies", "security", "pip"],
-    "file_path": "plugins/dependency_guard/main.py",
+    "dir_path": "plugins/dependency_guard",
     "payload": {
-      "manifest_path": "plugins/dependency_guard/plugin.json"
+      "entrypoint": "main.py"
+    }
+  },
+  {
+    "id": "plugin_pdf_toolkit",
+    "name": "pdf_toolkit",
+    "item_type": "plugin",
+    "description": "Read, merge, split, extract text/metadata, and generate PDF documents.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["pdf", "documents", "extractor", "generator", "converter"],
+    "dir_path": "plugins/pdf_toolkit",
+    "payload": {
+      "entrypoint": "main.py"
+    }
+  },
+  {
+    "id": "plugin_image_processor",
+    "name": "image_processor",
+    "item_type": "plugin",
+    "description": "Resize, compress, convert, crop, and optimize images across major formats.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["image", "resize", "compress", "converter", "pillow", "optimization"],
+    "dir_path": "plugins/image_processor",
+    "payload": {
+      "entrypoint": "main.py"
+    }
+  },
+  {
+    "id": "plugin_website_auditor",
+    "name": "website_auditor",
+    "item_type": "plugin",
+    "description": "Audit websites for SEO, accessibility, performance, and best practices.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["seo", "audit", "accessibility", "web", "performance", "security"],
+    "dir_path": "plugins/website_auditor",
+    "payload": {
+      "entrypoint": "main.py"
+    }
+  },
+  {
+    "id": "plugin_local_knowledge_base",
+    "name": "local_knowledge_base",
+    "item_type": "plugin",
+    "description": "Index selected folders, Markdown files, documentation, and notes so KuroCode can search personal or project knowledge and retrieve relevant passages when answering questions.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["knowledge-base", "search", "markdown", "notes", "rag", "retrieval", "docs"],
+    "dir_path": "plugins/local_knowledge_base",
+    "payload": {
+      "entrypoint": "main.py"
+    }
+  },
+  {
+    "id": "plugin_speech_transcriber",
+    "name": "speech_transcriber",
+    "item_type": "plugin",
+    "description": "Convert audio recordings into text using configurable speech-recognition APIs, with timestamps when supported.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["audio", "speech", "transcription", "whisper", "voice", "stt"],
+    "dir_path": "plugins/speech_transcriber",
+    "payload": {
+      "entrypoint": "main.py"
     }
   },
   {
@@ -85,7 +163,7 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["tdd", "testing", "refactor", "workflow"],
-    "file_path": "skills/tdd_refactoring/SKILL.md",
+    "dir_path": "skills/tdd_refactoring",
     "payload": {
       "steps": [
         "Write failing unit test.",
@@ -103,13 +181,49 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["security", "audit", "ast", "compliance"],
-    "file_path": "skills/security_audit/SKILL.md",
+    "dir_path": "skills/security_audit",
     "payload": {
       "steps": [
         "Scan source tree for hardcoded secrets.",
         "Inspect Python AST for risky calls.",
         "Check permission gates.",
         "Generate audit report."
+      ]
+    }
+  },
+  {
+    "id": "skill_docs_generator",
+    "name": "docs_generator",
+    "item_type": "skill",
+    "description": "Generate structured technical documentation from source code across multiple languages.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["documentation", "docs", "markdown", "docstrings", "api-reference"],
+    "dir_path": "skills/docs_generator",
+    "payload": {
+      "steps": [
+        "Discover modules, packages, and architecture targets.",
+        "Extract public interfaces, signatures, and configuration models.",
+        "Synthesize Markdown documentation with examples and diagrams.",
+        "Validate links, signatures, and output paths."
+      ]
+    }
+  },
+  {
+    "id": "skill_commit_generator",
+    "name": "commit_generator",
+    "item_type": "skill",
+    "description": "Generate Conventional Commit messages from Git diffs, staged changes, and issue references.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["git", "commits", "conventional-commits", "vcs", "workflow"],
+    "dir_path": "skills/commit_generator",
+    "payload": {
+      "steps": [
+        "Inspect git status and staged or unstaged diffs.",
+        "Categorize change type (feat, fix, docs, refactor, perf, test, chore).",
+        "Compose succinct imperative commit message following Conventional Commits 1.0.0.",
+        "Identify breaking changes and document necessary footers."
       ]
     }
   },
@@ -121,136 +235,24 @@
     "version": "1.0.0",
     "author": "kuroLabs-ai",
     "tags": ["gitlab", "vcs", "ci-cd", "devops"],
+    "dir_path": "integrations/gitlab",
     "payload": {
-      "connector_module": "kurocode.integrations.gitlab",
-      "required_env": ["GITLAB_TOKEN", "GITLAB_URL"]
+      "auth_type": "access_token",
+      "env_var": "GITLAB_TOKEN"
     }
   },
   {
     "id": "integration_slack",
     "name": "slack",
     "item_type": "integration",
-    "description": "Slack Webhook connector for dispatching operational alerts and team notifications.",
+    "description": "Slack workspace bot for task alerts and notifications",
     "version": "1.0.0",
     "author": "kuroLabs-ai",
-    "tags": ["slack", "notifications", "alerts", "chatops"],
+    "tags": ["slack", "notifications", "integration"],
+    "dir_path": "integrations/slack",
     "payload": {
-      "connector_module": "kurocode.integrations.slack",
-      "required_env": ["SLACK_WEBHOOK_URL"]
-    }
-  },
-  {
-    "id": "skill_docs_generator",
-    "name": "docs_generator",
-    "item_type": "skill",
-    "description": "Generate structured technical documentation from source code across multiple languages.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["documentation", "docs", "markdown", "docstrings", "api-reference"],
-    "file_path": "skills/docs_generator/SKILL.md",
-    "payload": {
-      "steps": [
-        "Discover modules, packages, and architecture targets.",
-        "Extract public interfaces, signatures, and configuration models.",
-        "Synthesize Markdown documentation with examples and diagrams.",
-        "Validate links, signatures, and output paths."
-      ]
-    }
-  },
-  {
-    "id": "tool_web_scraper",
-    "name": "web_scraper",
-    "item_type": "tool",
-    "description": "Extract structured information including title, metadata, headings, text summary, and links from permitted webpages.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["web", "scraper", "crawler", "http", "html", "parsing"],
-    "file_path": "tools/web_scraper.py",
-    "payload": {
-      "entrypoint": "web_scraper"
-    }
-  },
-  {
-    "id": "plugin_pdf_toolkit",
-    "name": "pdf_toolkit",
-    "item_type": "plugin",
-    "description": "Read, merge, split, extract text/metadata, and generate PDF documents.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["pdf", "documents", "extractor", "generator", "converter"],
-    "file_path": "plugins/pdf_toolkit/main.py",
-    "payload": {
-      "manifest_path": "plugins/pdf_toolkit/plugin.json"
-    }
-  },
-  {
-    "id": "plugin_image_processor",
-    "name": "image_processor",
-    "item_type": "plugin",
-    "description": "Resize, compress, convert, crop, and optimize images across major formats.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["image", "resize", "compress", "converter", "pillow", "optimization"],
-    "file_path": "plugins/image_processor/main.py",
-    "payload": {
-      "manifest_path": "plugins/image_processor/plugin.json"
-    }
-  },
-  {
-    "id": "plugin_website_auditor",
-    "name": "website_auditor",
-    "item_type": "plugin",
-    "description": "Audit websites for SEO, accessibility, performance, and best practices.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["seo", "audit", "accessibility", "web", "performance", "security"],
-    "file_path": "plugins/website_auditor/main.py",
-    "payload": {
-      "manifest_path": "plugins/website_auditor/plugin.json"
-    }
-  },
-  {
-    "id": "skill_commit_generator",
-    "name": "commit_generator",
-    "item_type": "skill",
-    "description": "Generate Conventional Commit messages from Git diffs, staged changes, and issue references.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["git", "commits", "conventional-commits", "vcs", "workflow"],
-    "file_path": "skills/commit_generator/SKILL.md",
-    "payload": {
-      "steps": [
-        "Inspect git status and staged or unstaged diffs.",
-        "Categorize change type (feat, fix, docs, refactor, perf, test, chore).",
-        "Compose succinct imperative commit message following Conventional Commits 1.0.0.",
-        "Identify breaking changes and document necessary footers."
-      ]
-    }
-  },
-  {
-    "id": "plugin_local_knowledge_base",
-    "name": "local_knowledge_base",
-    "item_type": "plugin",
-    "description": "Index selected folders, Markdown files, documentation, and notes so KuroCode can search personal or project knowledge and retrieve relevant passages when answering questions.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["knowledge-base", "search", "markdown", "notes", "rag", "retrieval", "docs"],
-    "file_path": "plugins/local_knowledge_base/main.py",
-    "payload": {
-      "manifest_path": "plugins/local_knowledge_base/plugin.json"
-    }
-  },
-  {
-    "id": "plugin_speech_transcriber",
-    "name": "speech_transcriber",
-    "item_type": "plugin",
-    "description": "Convert audio recordings into text using configurable speech-recognition APIs, with timestamps when supported.",
-    "version": "1.0.0",
-    "author": "kuroLabs-ai",
-    "tags": ["audio", "speech", "transcription", "whisper", "voice", "stt"],
-    "file_path": "plugins/speech_transcriber/main.py",
-    "payload": {
-      "manifest_path": "plugins/speech_transcriber/plugin.json"
+      "auth_type": "bot_token",
+      "env_var": "SLACK_BOT_TOKEN"
     }
   }
 ]

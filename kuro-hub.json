@@ -267,6 +267,44 @@
     }
   },
   {
+    "id": "skill_api_endpoint_scaffolder",
+    "name": "api_endpoint_scaffolder",
+    "item_type": "skill",
+    "description": "End-to-end routine for scaffolding production-ready API endpoints with schemas, validation, router registration, and tests.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["api", "rest", "backend", "scaffolding", "fastapi", "testing", "openapi"],
+    "dir_path": "skills/api_endpoint_scaffolder",
+    "payload": {
+      "steps": [
+        "Define request/response schemas and contract with strict types.",
+        "Scaffold integration tests covering 200, 400, 404, and 401 status codes.",
+        "Implement route handler and service layer with proper exception handling.",
+        "Register route with router, add OpenAPI annotations, and run full test suite."
+      ]
+    }
+  },
+  {
+    "id": "skill_database_migration_reviewer",
+    "name": "database_migration_reviewer",
+    "item_type": "skill",
+    "description": "Systematic review routine for inspecting database migrations for locking risks, rollback integrity, index correctness, and data safety.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["database", "migrations", "sql", "alembic", "prisma", "safety", "review"],
+    "dir_path": "skills/database_migration_reviewer",
+    "payload": {
+      "steps": [
+        "Discover and classify pending migration files by framework and type.",
+        "Inspect for table-locking operations and recommend safe alternatives.",
+        "Verify downgrade/rollback scripts are present, correct, and idempotent.",
+        "Validate index presence on foreign keys and concurrent index creation.",
+        "Check data migrations for row scoping, enum changes, and hardcoded values.",
+        "Compile structured PASS / WARN / BLOCK migration report."
+      ]
+    }
+  },
+  {
     "id": "integration_gitlab",
     "name": "gitlab",
     "item_type": "integration",

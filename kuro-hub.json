@@ -65,6 +65,19 @@
     }
   },
   {
+    "id": "tool_metadata_stripper",
+    "name": "metadata_stripper",
+    "item_type": "tool",
+    "description": "Strip and sanitize metadata (EXIF, GPS, author info, timestamps) from selected files including images, PDFs, and documents.",
+    "version": "1.0.0",
+    "author": "kuroLabs-ai",
+    "tags": ["metadata", "privacy", "exif", "sanitizer", "security", "cleaner"],
+    "file_path": "tools/metadata_stripper.py",
+    "payload": {
+      "entrypoint": "metadata_stripper"
+    }
+  },
+  {
     "id": "plugin_code_metrics",
     "name": "code_metrics",
     "item_type": "plugin",
